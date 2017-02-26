@@ -1,5 +1,5 @@
-var app = require('express');
-var router = app.Router();
+var express = require('express');
+var router = express.Router();
 var bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({ extended: true }));
 var User = require('./User');
@@ -22,6 +22,8 @@ router.get('/', function (req, res) {
 
     User.find({}, function (err, users) {
         if (err) return res.status(404).send("No users found.");
+        console.log(users);
+        console.log(typeof users);
         return res.status(200).send(users);
     });
 
