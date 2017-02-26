@@ -22,8 +22,6 @@ router.get('/', function (req, res) {
 
     User.find({}, function (err, users) {
         if (err) return res.status(404).send("No users found.");
-        console.log(users);
-        console.log(typeof users);
         return res.status(200).send(users);
     });
 
