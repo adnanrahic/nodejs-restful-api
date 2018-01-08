@@ -5,6 +5,7 @@ provider:
   runtime: nodejs6.10
   stage: dev
   region: us-east-1
+  memorySize: 128
 
 functions:
   app:
