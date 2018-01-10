@@ -1,10 +1,10 @@
 # nodejs-restful-api
-![RESTful API design with Node.js](https://cdn-images-1.medium.com/max/2000/1*jjYC9tuf4C3HkHCP5PcKTA.jpeg "RESTful API design with Node.js")
+![Migrating your Node.js REST API to Serverless](https://cdn-images-1.medium.com/max/2000/1*5UL0AphTuLNdlLnVsd-7Nw.jpeg "Migrating your Node.js REST API to Serverless")
 
-How to create a RESTful CRUD API using Nodejs?
+How to migrate your Node.js REST API to Serverless?
 
-This tutorial will demo how to set up a bare bones 
-API using mongodb as the database.
+This tutorial will demo how to migrate an existing REST
+API using MongodDB as the database to Serverless.
 
 It consist of a User model and controller. The model
 defines the data, and the controller will contain all 
@@ -14,8 +14,4 @@ It has a db file which will be used to
 connect the app to the database, and an app file used
 for bootstrapping the application itself.
 
-The server file is used to spin up the server and tells the
-app to listen on a specific port.
-
-Full tutorial can be found at:
-https://hackernoon.com/restful-api-design-with-node-js-26ccf66eab09#.s5l66zyeu
+The server file is used to hook up the app to Serverless.
