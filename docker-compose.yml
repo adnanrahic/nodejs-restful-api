@@ -1,0 +1,58 @@
+version: "3"
+services:
+  mongo:
+    image: mongo
+    volumes:
+      - mongo:/data/db
+    networks: 
+      backend:
+        aliases:
+          - mongo
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints:
+          - node.role == manager
+      labels: [APP=DB]
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "37017:27017"
+  
+  api:
+    image: adnanrahic/node-api
+    networks: 
+      - backend
+    depends_on:
+      - mongo
+    deploy:
+      mode: replicated
+      replicas: 5
+      labels: [APP=API]
+      resources:
+        limits:
+          cpus: '1'
+          memory: 512M
+        reservations:
+          cpus: '0.5'
+          memory: 256M
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 10s
+        failure_action: continue
+        monitor: 60s
+        max_failure_ratio: 0.3
+    ports:
+      - "9000:3000"
+
+networks: 
+  backend:
+
+volumes:
+  mongo:

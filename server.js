@@ -1,4 +1,4 @@
-require('dotenv').config({ path: './variables.env' });
+require('dotenv').config({ path: './docker.variables.env' });
 var app = require('./app');
 var port = process.env.PORT || 3000;
 
