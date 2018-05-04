@@ -1,8 +1,16 @@
-var express = require('express');
-var app = express();
-var db = require('./db');
+const express = require('express');
+const bodyParser = require('body-parser');
 
-var UserController = require('./user/UserController');
+const db = require('./db');
+
+
+/* APP CONFIGURATION*/
+const app = express();
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+
+const UserController = require('./user/UserController');
 app.use('/users', UserController);
 
 module.exports = app;
