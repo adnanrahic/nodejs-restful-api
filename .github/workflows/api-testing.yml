@@ -1,0 +1,12 @@
+name: API Testing
+
+on: [push]
+
+jobs: 
+    api-tests:
+        name: API Tests
+        runs-on: ubuntu-latest
+        steps:
+            - name: Check out repository code
+              uses: actions/checkout@v3
+            - run: echo "API TESTING HERE....."
